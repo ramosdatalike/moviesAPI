@@ -18,9 +18,11 @@ from django.urls import path, include
 from django.conf.urls import url
 from .api import router
 from cine import api_views as cine_views
+from rest_framework.documentation import include_docs_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
-    url('api/v1/login', cine_views.login)
+    url('api/v1/login', cine_views.login),
+    path('docs/', include_docs_urls(title='Movies API'))
 ]
