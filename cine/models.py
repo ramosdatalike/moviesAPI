@@ -7,8 +7,9 @@ class Person(models.Model):
                   verbose_name ='ID')
     last_name=models.CharField(max_length=100)
     first_name=models.CharField(max_length=100)
-    aliases=models.CharField(max_length=100)
-    
+    aliases=models.CharField(max_length=100, null=True, blank=True)
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name   
 
 class Movie(models.Model):
     id = models.AutoField(auto_created = True,

@@ -24,5 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
     url('api/v1/login', cine_views.login),
-    path('docs/', include_docs_urls(title='Movies API'))
+    path('docs/', include_docs_urls(title='Movies API')),
+    url(r'^', include(('cine.urls','cine'), namespace='cine')),
 ]
+
+# app_name = 'cine'

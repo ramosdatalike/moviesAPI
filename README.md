@@ -1,4 +1,4 @@
-## API Movies and Persons
+# API Movies and Persons
 
 used libraries and frameworks:
 - Django framework (I used this framework because is a full stack web framework and have a admin framework ready to use)
@@ -16,13 +16,13 @@ pip3 install coreapi
 pip3 install python-dotenv
 ```
 ## .env file
-Create .env file in the root directory next ti 
+Create .env file in the root directory next to 
 Generate a SECRET_KEY with this website:
 https://djecrety.ir/
 and after that write inside .env file:
 ``` 
 SECRET_KEY = '<GENERATED SECRET_KEY>'
-DJANGO_DEBUG = True
+DJANGO_DEBUG = False
 ```
 ## Run migrations and run server
 ``` 
@@ -30,11 +30,68 @@ python3 manage.py makemigrations
 python3 manage.py migrate
 python3 manage.py runserver
 ```
-API Documentation: 
-for full documentation after run the server go to url:
+## Interface:
+
+In the root URL you will see Movies and Persons links to browse between them.
+And in each list you will find the Actions: Create, Show, Edit, Delete
+
+# API Documentation: 
+The full documentation you can find in the root URL/docs:
 ```
 http://127.0.0.1:8000/docs/
 ```
+## Endpoint List
+
+### Login
+```
+POST
+/api/v1/login
+```
+### Movies
+```
+GET
+/api/v1/movies/
+
+POST
+/api/v1/movies/
+
+GET
+/api/v1/movies/{id}
+
+PUT
+/api/v1/movies/{id}
+
+PATCH
+/api/v1/movies/{id}
+
+DELETE
+/api/v1/movies/{id}
+
+```
+
+### Persons
+```
+GET
+/api/v1/persons/
+
+POST
+/api/v1/persons/
+
+GET
+/api/v1/persons/{id}
+
+PUT
+/api/v1/persons/{id}
+
+PATCH
+/api/v1/persons/{id}
+
+DELETE
+/api/v1/persons/{id}
+```
+
+## The Api Documentation:
+
 ![plot](./cine/documentation/1.png)
 ![plot](./cine/documentation/2.png)
 ![plot](./cine/documentation/3.png)

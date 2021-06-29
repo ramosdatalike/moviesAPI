@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Movie:  {{ movie.title }}</h3>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Release year:</th>
+        <th>Casting:</th>
+        <th>Directors:</th>
+        <th>Producers:</th>
+        
+    </tr>
+    <tr>
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.release_year }}</td>
+        <td>    
+            {% for cast in movie.casting.all %}
+                <p>{{ cast.first_name }} {{ cast.last_name }}</a></p> 
+            {% endfor %}
+        </td>
+        <td>    
+            {% for cast in movie.directors.all %}
+                <p>{{ cast.first_name }} {{ cast.last_name }}</a></p> 
+            {% endfor %}
+        </td>
+        <td>    
+            {% for cast in movie.producers.all %}
+                <p>{{ cast.first_name }} {{ cast.last_name }}</a></p> 
+            {% endfor %}
+        </td>
+    </tr>
+</table>
+
+<p>
+    <a href="{% url "cine:list" %}">Regresar</a>
+</p>
+
+{% endblock %}

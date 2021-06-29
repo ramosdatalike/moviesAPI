@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Movies:</h3>
+<p>
+    <a href="{% url "cine:new" %}">Add Movie</a>
+</p>
+<ul>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Release year:</th>
+            <th>Actions</th>
+          </tr>
+          {% for movie in object_list %}
+            <tr>
+                <td>{{ movie.title }}</td>
+                <td>{{ movie.release_year }}</td>
+                <td>    
+                    <a href="{% url "cine:detail" movie.id %}">Show</a> | 
+                    <a href="{% url "cine:edit" movie.id %}">Edit</a> | 
+                    <a href="{% url "cine:delete" movie.id %}">Delete</a> 
+                </td>
+            </tr>
+          {% endfor %}
+    </table>
+</ul>
+{% endblock %}
+
+

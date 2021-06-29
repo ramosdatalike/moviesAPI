@@ -1,0 +1,45 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h3>Persons:</h3>
+
+<p>
+    <a href="{% url "cine:new_p" %}">Add Person</a>
+</p>
+
+<ul>
+
+    <table>
+        <tr>
+            <th>First name:</th>
+            <th>Last name:</th>
+            <th>Aliases:</th>
+            <th>Actions</th>
+          </tr>
+          {% for person in object_list %}
+            <tr>
+                <td>{{ person.first_name }}</td>
+                <td>{{ person.last_name }}</td>
+                <td>
+                {% if person.aliases %}
+                    {{ person.aliases }}
+                {% endif %}
+                    </td>
+                <td>
+                    <a href="{% url "cine:detail_p" person.id %}">Show</a> | 
+                    <a href="{% url "cine:edit_p" person.id %}">Edit</a> | 
+                    <a href="{% url "cine:delete_p" person.id %}">Delete</a> 
+                </td>
+        
+            </tr>
+          {% endfor %}
+    </table>
+
+</ul>
+
+{% endblock %}
+
+
+
