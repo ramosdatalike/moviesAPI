@@ -60,7 +60,7 @@ ROOT_URLCONF = 'movieCompany.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str(BASE_DIR.joinpath('cine/templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,6 +72,7 @@ TEMPLATES = [
         },
     },
 ]
+LOGIN_REDIRECT_URL= '/'
 
 WSGI_APPLICATION = 'movieCompany.wsgi.application'
 
@@ -122,9 +123,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
+STATIC_ROOT = "/home/matiasramos/moviesAPI/cine/static"
 STATIC_URL = '/cine/static/'
-
+STATICFILE_DIRS = (os.path.join(BASE_DIR, "static/"),)
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

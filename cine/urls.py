@@ -1,5 +1,6 @@
     
 from django.conf.urls import url
+from django.urls import path, include
 
 from .views import MovieList, MovieDetail, MovieCreation, MovieUpdate, MovieDelete
 from .views import PersonList, PersonDetail, PersonCreation, PersonUpdate, PersonDelete
@@ -17,4 +18,5 @@ urlpatterns = [
     url(r'^person/new$', PersonCreation.as_view(), name='new_p'),
     url(r'^person/edit/(?P<pk>\d+)$', PersonUpdate.as_view(), name='edit_p'),
     url(r'^person/delete/(?P<pk>\d+)$', PersonDelete.as_view(), name='delete_p'),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
